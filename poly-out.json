@@ -1,0 +1,78 @@
+﻿{
+  "id": "0x5a8c5193008f76941e75598a31ef2915125ef0a8a7cfcb7369e8c451511c4452",
+  "question": "Cap on gambling loss deductions repealed by March 31?",
+  "outcomes": [
+    "Yes",
+    "No"
+  ],
+  "volume": 0,
+  "liquidity": 0,
+  "prices": {
+    "Yes": 0.155,
+    "No": 0.845
+  },
+  "tickSize": 0.01,
+  "description": "This market will resolve to \"Yes\" if the 90% cap on gambling loss deductions enacted in the 2025 \"Big Beautiful Bill\" is fully repealed by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nTo qualify as a repeal, the cap must be entirely remove any cap limiting gambling loss deductions to below 100%.\n\nModifications鈥攕uch as increasing the limit, delaying implementation or changing how it is calculated will not qualify.\n\nThe resolution source for this market will be a consensus of credible reporting.",
+  "metadata": {
+    "enable_order_book": true,
+    "active": true,
+    "closed": false,
+    "archived": false,
+    "accepting_orders": true,
+    "accepting_order_timestamp": "2025-11-05T19:32:33Z",
+    "minimum_order_size": 5,
+    "minimum_tick_size": 0.01,
+    "condition_id": "0x5a8c5193008f76941e75598a31ef2915125ef0a8a7cfcb7369e8c451511c4452",
+    "question_id": "0xaf8488658e9c35e38e49a5de9ab8b3fdd5c657a53fecd4c987141a2ace646620",
+    "question": "Cap on gambling loss deductions repealed by March 31?",
+    "description": "This market will resolve to \"Yes\" if the 90% cap on gambling loss deductions enacted in the 2025 \"Big Beautiful Bill\" is fully repealed by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nTo qualify as a repeal, the cap must be entirely remove any cap limiting gambling loss deductions to below 100%.\n\nModifications鈥攕uch as increasing the limit, delaying implementation or changing how it is calculated will not qualify.\n\nThe resolution source for this market will be a consensus of credible reporting.",
+    "market_slug": "cap-on-gambling-loss-deductions-repealed-by-march-31",
+    "end_date_iso": "2026-03-31T00:00:00Z",
+    "game_start_time": null,
+    "seconds_delay": 0,
+    "fpmm": "",
+    "maker_base_fee": 0,
+    "taker_base_fee": 0,
+    "notifications_enabled": true,
+    "neg_risk": false,
+    "neg_risk_market_id": "",
+    "neg_risk_request_id": "",
+    "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-big-beautiful-bill-cap-gambling-loss-deductions-v4t_kSaIk_p9.jpg",
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-big-beautiful-bill-cap-gambling-loss-deductions-v4t_kSaIk_p9.jpg",
+    "rewards": {
+      "rates": [
+        {
+          "asset_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "rewards_daily_rate": 5
+        }
+      ],
+      "min_size": 50,
+      "max_spread": 4.5
+    },
+    "is_50_50_outcome": false,
+    "tokens": [
+      {
+        "token_id": "67565972075898091709163371829761231762318232475740950317083391526954889294846",
+        "outcome": "Yes",
+        "price": 0.155,
+        "winner": false
+      },
+      {
+        "token_id": "103839456992405565726868179020008626822011827310693291614954291931191338865400",
+        "outcome": "No",
+        "price": 0.845,
+        "winner": false
+      }
+    ],
+    "tags": [
+      "Politics",
+      "Taxes"
+    ],
+    "clobTokenIds": [
+      "67565972075898091709163371829761231762318232475740950317083391526954889294846",
+      "103839456992405565726868179020008626822011827310693291614954291931191338865400"
+    ],
+    "conditionId": "0x5a8c5193008f76941e75598a31ef2915125ef0a8a7cfcb7369e8c451511c4452",
+    "minimumTickSize": 0.01
+  }
+}
