@@ -13,7 +13,7 @@ export class MarketService {
           // if ('searchMarkets' in exchange) {
           //   markets = await (exchange as any).searchMarkets({ limit: 5000, offset: 0 });
           // } else {
-            markets = await exchange.fetchMarkets({ limit: 5000,offset: 0,active: true,closed: true });
+            markets = await exchange.fetchMarkets({ limit: 1000, offset: 0, active: true, closed: true });
           // }
           
           return markets.map((m: any) => {
@@ -24,22 +24,43 @@ export class MarketService {
               question = m.metadata.subtitle || m.metadata.event_title || m.metadata.title || m.question;
             }
 
+            // Ensure we don't have BigInt values which crash JSON.stringify in Vercel/Express
+            const normalizeNumber = (val: any) => {
+              if (val === null || val === undefined) return 0;
+              if (typeof val === 'bigint') return Number(val);
+              if (typeof val === 'string') return parseFloat(val) || 0;
+              return Number(val) || 0;
+            };
+
+            const formatDate = (date: any) => {
+              if (!date) return '';
+              try {
+                if (date instanceof Date) return date.toISOString();
+                if (typeof date === 'string' || typeof date === 'number') {
+                  return new Date(date).toISOString();
+                }
+                return String(date);
+              } catch (e) {
+                return '';
+              }
+            };
+
             return {
-              id: m.id || m.uid,
+              id: String(m.id || m.uid || ''),
               platform: name,
               question: question || 'Unknown Question',
-              outcomes: m.outcomes || [],
-              prices: m.prices ? Object.values(m.prices).map((p: any) => typeof p === 'number' ? p : parseFloat(p)) : [],
-              liquidity: m.liquidity || 0,
-              volume: m.volume || 0,
-              endDate: m.closeTime?.toISOString() || '',
+              outcomes: Array.isArray(m.outcomes) ? m.outcomes.map(String) : [],
+              prices: m.prices ? Object.values(m.prices).map(normalizeNumber) : [],
+              liquidity: normalizeNumber(m.liquidity),
+              volume: normalizeNumber(m.volume),
+              endDate: formatDate(m.closeTime),
               url: m.url || (m.metadata?.market_slug ? `https://polymarket.com/event/${m.metadata.market_slug}` : ''),
-              isBinary: MarketUtils.isBinary(m),
-              isOpen: MarketUtils.isOpen(m),
+              isBinary: Boolean(MarketUtils.isBinary(m)),
+              isOpen: Boolean(MarketUtils.isOpen(m)),
             };
           });
         } catch (error: any) {
-          console.warn(`[${name}] Skip fetching: ${error.message}`);
+          console.error(`[${name}] Error fetching markets:`, error);
           return [];
         }
       })

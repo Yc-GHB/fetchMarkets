@@ -33,7 +33,7 @@ app.get('/health', (req: Request, res: Response) => {
 // Export app for Vercel
 export default app;
 
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+if (!process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`🚀 Market Aggregator Service running on http://localhost:${PORT}`);
     console.log(`📊 API Endpoint: http://localhost:${PORT}/api/markets`);
